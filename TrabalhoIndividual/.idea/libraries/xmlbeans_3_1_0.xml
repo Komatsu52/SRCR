@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="xmlbeans-3.1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/xmlbeans-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/resolver.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/xmlbeans-3.1.0-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/xmlbeans-3.1.0-javadoc.jar!/" />
+      <root url="file://$PROJECT_DIR$/poi-bin-4.1.2-20200217/poi-4.1.2/docs/apidocs/dev" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/lib/xmlbeans-3.1.0-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/src" />
+      <root url="file://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/samples/Any/src" />
+      <root url="file://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/samples/DateTime/src" />
+      <root url="file://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/samples/MixedContent/src" />
+      <root url="file://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/samples/OrderMatters/src" />
+      <root url="file://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/samples/SchemaEnum/src" />
+      <root url="file://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/samples/Validation/src" />
+      <root url="file://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/samples/XQueryXPath/src" />
+      <root url="file://$PROJECT_DIR$/xmlbeans-bin-3.1.0/xmlbeans-3.1.0/samples/XsdConfig/src" />
+    </SOURCES>
+  </library>
+</component>
