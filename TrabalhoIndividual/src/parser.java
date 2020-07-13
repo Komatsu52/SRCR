@@ -100,6 +100,7 @@ public class parser{
         FileWriter cidfile = new FileWriter("cidades.pl");
         FileWriter ligfile = new FileWriter("ligacoes.pl");
         FileWriter monfile = new FileWriter("monumentos.pl");
+        FileWriter turfile = new FileWriter("turismo.pl");
 
         File excelFile = new File("/home/goncalo/Área de Trabalho/SRCR/TrabalhoIndividual/cidades.xlsx");
         FileInputStream fis = new FileInputStream(excelFile);
@@ -129,6 +130,7 @@ public class parser{
             }
 
             monfile.write("%monumento(MONUMENTO, CIDADE).\n");
+            turfile.write("%turismo(TIPO, CIDADE).\n");
         }
 
         while(rowIt.hasNext()) {
@@ -167,7 +169,7 @@ public class parser{
             aux.add(cidade);
             concelhos.put(distrito, aux);
 
-            cidfile.write(Normalizer.normalize("\ncidade(" + id + ", \"" + cidade + "\", " + lat + ", " + lon + ", \"" + distrito + "\", " + capital + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+            cidfile.write(Normalizer.normalize("\ncidade(" + id + ", '" + cidade + "', " + lat + ", " + lon + ", '" + distrito + "', " + capital + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
             double[] coord = new double[2];
             coord[0] = lat;
             coord[1] = lon;
@@ -175,7 +177,24 @@ public class parser{
 
             if(monumentos.containsKey(cidade)){
                 for(String m : monumentos.get(cidade))
-                    monfile.write(Normalizer.normalize("\nmonumento(\"" + m + "\", \"" + cidade + "\").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                    monfile.write(Normalizer.normalize("\nmonumento('" + m + "', '" + cidade + "').", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+            }
+
+            Random rand = new Random();
+            int r = rand.nextInt(6);
+
+            switch (r){
+                case 0:
+                    turfile.write(Normalizer.normalize("\nturismo(gastronomico, '" + cidade + "').", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                    break;
+                case 1:
+                    turfile.write(Normalizer.normalize("\nturismo(cultural, '" + cidade + "').", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                    break;
+                case 2:
+                    turfile.write(Normalizer.normalize("\nturismo(balnear, '" + cidade + "').", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -201,7 +220,7 @@ public class parser{
                         double latB = (coord2[0]*Math.PI)/180;
                         double lonB = (coord2[1]*Math.PI)/180;
                         distancia = raioTerra * Math.acos(Math.sin(latA)*Math.sin(latB) + Math.cos(latA)*Math.cos(latB)*Math.cos(lonA-lonB));
-                        ligfile.write(Normalizer.normalize("\nligacao(\"" + c + "\", \"" + c2 + "\", " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                        ligfile.write(Normalizer.normalize("\nligacao('" + c + "', '" + c2 + "', " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                     }
                 }
                 aux3.add(c);
@@ -221,7 +240,7 @@ public class parser{
                             double latB = (coord2[0]*Math.PI)/180;
                             double lonB = (coord2[1]*Math.PI)/180;
                             distancia = raioTerra * Math.acos(Math.sin(latA)*Math.sin(latB) + Math.cos(latA)*Math.cos(latB)*Math.cos(lonA-lonB));
-                            ligfile.write(Normalizer.normalize("\nligacao(\"" + c + "\", \"" + c2 + "\", " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                            ligfile.write(Normalizer.normalize("\nligacao('" + c + "', '" + c2 + "', " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                         }
                     }
                 }
@@ -233,5 +252,6 @@ public class parser{
         cidfile.close();
         ligfile.close();
         monfile.close();
+        turfile.close();
     }
 }
