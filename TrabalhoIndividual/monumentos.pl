@@ -1,38 +1,38 @@
 %monumento(MONUMENTO, CIDADE).
 
-monumento("Palácio Nacional de Ajuda", "Lisboa").
-monumento("Mosteiro dos Jerónimos", "Lisboa").
-monumento("Torre de Belém", "Lisboa").
-monumento("Castelo de São Jorge", "Lisboa").
+monumento("Palacio Nacional de Ajuda", "Lisboa").
+monumento("Mosteiro dos Jeronimos", "Lisboa").
+monumento("Torre de Belem", "Lisboa").
+monumento("Castelo de Sao Jorge", "Lisboa").
 monumento("Convento do Carmo", "Lisboa").
-monumento("Mosteiro de Tibães", "Braga").
+monumento("Mosteiro de Tibaes", "Braga").
 monumento("Bom Jesus do Monte", "Braga").
-monumento("Cromeleque dos Almendres", "Évora").
-monumento("Capela dos Ossos", "Évora").
-monumento("Templo Romano de Évora", "Évora").
-monumento("Palácio de Estói", "Faro").
-monumento("Sé da Guarda", "Guarda").
+monumento("Cromeleque dos Almendres", "Evora").
+monumento("Capela dos Ossos", "Evora").
+monumento("Templo Romano de Evora", "Evora").
+monumento("Palacio de Estoi", "Faro").
+monumento("Se da Guarda", "Guarda").
 monumento("Santa Luzia", "Viana do Castelo").
-monumento("Palácio da Bolsa", "Porto").
-monumento("Estação de São Bento", "Porto").
-monumento("Torre dos Clérigos", "Porto").
-monumento("Castelo de Guimarães", "Guimarães").
-monumento("Nossa Senhora da Peneda", "Melgaço").
-monumento("Palácio Nacional de Mafra", "Mafra").
-monumento("Palácio de Mateus", "Vila Real").
+monumento("Palacio da Bolsa", "Porto").
+monumento("Estacao de Sao Bento", "Porto").
+monumento("Torre dos Clerigos", "Porto").
+monumento("Castelo de Guimaraes", "Guimaraes").
+monumento("Nossa Senhora da Peneda", "Melgaco").
+monumento("Palacio Nacional de Mafra", "Mafra").
+monumento("Palacio de Mateus", "Vila Real").
 monumento("Mosteiro da Serra do Pilar", "Vila Nova de Gaia").
-monumento("Santuário de Nossa Senhora dos Remédios", "Lamego").
-monumento("Palácio da Pena", "Sintra").
-monumento("Palácio de Queluz", "Sintra").
-monumento("Palácio de Monserrate", "Sintra").
+monumento("Santuario de Nossa Senhora dos Remedios", "Lamego").
+monumento("Palacio da Pena", "Sintra").
+monumento("Palacio de Queluz", "Sintra").
+monumento("Palacio de Monserrate", "Sintra").
 monumento("Castelo dos Mouros", "Sintra").
 monumento("Quinta da Regaleira", "Sintra").
-monumento("Palácio Nacional de Sintra", "Sintra").
-monumento("Igreja Paroquial de Válega", "Ovar").
+monumento("Palacio Nacional de Sintra", "Sintra").
+monumento("Igreja Paroquial de Valega", "Ovar").
 monumento("Mosteiro da Batalha", "Batalha").
 monumento("Convento de Cristo", "Tomar").
 monumento("Biblioteca Joanina de Coimbra", "Coimbra").
-monumento("Mosteiro de Alcobaça", "Alcobaça").
-monumento("Palácio do Buçaco", "Mealhada").
+monumento("Mosteiro de Alcobaca", "Alcobaca").
+monumento("Palacio do Bucaco", "Mealhada").
 monumento("Ponte Romana de Trajano", "Chaves").
-monumento("Palácio da Brejoeira", "Monção").
+monumento("Palacio da Brejoeira", "Moncao").

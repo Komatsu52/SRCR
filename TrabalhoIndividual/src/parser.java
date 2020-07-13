@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.Normalizer;
 import java.util.*;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -166,7 +167,7 @@ public class parser{
             aux.add(cidade);
             concelhos.put(distrito, aux);
 
-            cidfile.write("\ncidade(" + id + ", \"" + cidade + "\", " + lat + ", " + lon + ", \"" + distrito + "\", " + capital + ").");
+            cidfile.write(Normalizer.normalize("\ncidade(" + id + ", \"" + cidade + "\", " + lat + ", " + lon + ", \"" + distrito + "\", " + capital + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
             double[] coord = new double[2];
             coord[0] = lat;
             coord[1] = lon;
@@ -174,7 +175,7 @@ public class parser{
 
             if(monumentos.containsKey(cidade)){
                 for(String m : monumentos.get(cidade))
-                    monfile.write("\nmonumento(\"" + m + "\", \"" + cidade + "\").");
+                    monfile.write(Normalizer.normalize("\nmonumento(\"" + m + "\", \"" + cidade + "\").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
             }
         }
 
@@ -200,7 +201,7 @@ public class parser{
                         double latB = (coord2[0]*Math.PI)/180;
                         double lonB = (coord2[1]*Math.PI)/180;
                         distancia = raioTerra * Math.acos(Math.sin(latA)*Math.sin(latB) + Math.cos(latA)*Math.cos(latB)*Math.cos(lonA-lonB));
-                        ligfile.write("\nligacao(\"" + c + "\", \"" + c2 + "\", " + distancia + ").");
+                        ligfile.write(Normalizer.normalize("\nligacao(\"" + c + "\", \"" + c2 + "\", " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                     }
                 }
                 aux3.add(c);
@@ -220,7 +221,7 @@ public class parser{
                             double latB = (coord2[0]*Math.PI)/180;
                             double lonB = (coord2[1]*Math.PI)/180;
                             distancia = raioTerra * Math.acos(Math.sin(latA)*Math.sin(latB) + Math.cos(latA)*Math.cos(latB)*Math.cos(lonA-lonB));
-                            ligfile.write("\nligacao(\"" + c + "\", \"" + c2 + "\", " + distancia  + ").");
+                            ligfile.write(Normalizer.normalize("\nligacao(\"" + c + "\", \"" + c2 + "\", " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                         }
                     }
                 }
