@@ -39,9 +39,34 @@ public class parser{
                 "Aveiro", "Viseu", "Guarda", "Coimbra", "Castelo Branco", "Leiria",
                 "Santarém", "Portalegre", "Lisboa", "Setúbal", "Évora", "Beja", "Faro"};
 
+
+        String[][] mon = {{"Sintra", "Palácio da Pena", "Palácio de Queluz", "Palácio de Monserrate", "Castelo dos Mouros", "Quinta da Regaleira", "Palácio Nacional de Sintra"},
+                          {"Porto", "Palácio da Bolsa", "Estação de São Bento", "Torre dos Clérigos"},
+                          {"Monção", "Palácio da Brejoeira"},
+                          {"Faro", "Palácio de Estói"},
+                          {"Mafra", "Palácio Nacional de Mafra"},
+                          {"Lisboa", "Palácio Nacional de Ajuda", "Mosteiro dos Jerónimos", "Torre de Belém", "Castelo de São Jorge", "Convento do Carmo"},
+                          {"Vila Nova de Gaia", "Mosteiro da Serra do Pilar"},
+                          {"Batalha", "Mosteiro da Batalha"},
+                          {"Alcobaça", "Mosteiro de Alcobaça"},
+                          {"Braga", "Mosteiro de Tibães", "Bom Jesus do Monte"},
+                          {"Évora", "Cromeleque dos Almendres", "Capela dos Ossos", "Templo Romano de Évora"},
+                          {"Guimarães", "Castelo de Guimarães"},
+                          {"Chaves", "Ponte Romana de Trajano"},
+                          {"Vila Real", "Palácio de Mateus"},
+                          {"Lamego", "Santuário de Nossa Senhora dos Remédios"},
+                          {"Viana do Castelo", "Santa Luzia"},
+                          {"Mealhada", "Palácio do Buçaco"},
+                          {"Melgaço", "Nossa Senhora da Peneda"},
+                          {"Tomar", "Convento de Cristo"},
+                          {"Guarda", "Sé da Guarda"},
+                          {"Ovar", "Igreja Paroquial de Válega"},
+                          {"Coimbra", "Biblioteca Joanina de Coimbra"}};
+
         Map<String, List<String>> fronteiras = new HashMap<>();
         Map<String, List<String>> concelhos = new HashMap<>();
         Map<String, double[]> coordenadas = new HashMap<>();
+        Map<String, List<String>> monumentos = new HashMap<>();
         List<String> aux;
 
         for(int i = 0; i < dist.length; i++){
@@ -57,12 +82,21 @@ public class parser{
             concelhos.put(dist[i], new ArrayList<>());
         }
 
+        for(int i = 0; i < mon.length; i++){
+            aux = new ArrayList<>();
+            String cidade = mon[i][0];
+            for(int j = 1; j < mon[i].length; j++)
+                aux.add(mon[i][j]);
+            monumentos.put(cidade, aux);
+        }
+
         int id = -1, i;
         String cidade = " ", distrito = " ", capital = " ";
         double lat = -1, lon = -1;
 
         FileWriter cidfile = new FileWriter("cidades.pl");
         FileWriter ligfile = new FileWriter("ligacoes.pl");
+        FileWriter monfile = new FileWriter("monumentos.pl");
 
         File excelFile = new File("/home/goncalo/Área de Trabalho/SRCR/TrabalhoIndividual/cidades.xlsx");
         FileInputStream fis = new FileInputStream(excelFile);
@@ -86,10 +120,12 @@ public class parser{
                 if(i < 5)
                     cidfile.write(cell.toString().toUpperCase() + ", ");
                 else
-                    cidfile.write(cell.toString().toUpperCase() + ").\n\n");
+                    cidfile.write(cell.toString().toUpperCase() + ").\n");
 
                 i++;
             }
+
+            monfile.write("%monumento(MONUMENTO, CIDADE).\n");
         }
 
         while(rowIt.hasNext()) {
@@ -128,18 +164,23 @@ public class parser{
             aux.add(cidade);
             concelhos.put(distrito, aux);
 
-            cidfile.write("cidade(" + id + ", \"" + cidade + "\", " + lat + ", " + lon + ", \"" + distrito + "\", " + capital + ").\n");
+            cidfile.write("\ncidade(" + id + ", \"" + cidade + "\", " + String.format("%.5f", lat) + ", " + String.format("%.5f", lon) + ", \"" + distrito + "\", " + capital + ").");
             double[] coord = new double[2];
             coord[0] = lat;
             coord[1] = lon;
             coordenadas.put(cidade, coord);
+
+            if(monumentos.containsKey(cidade)){
+                for(String m : monumentos.get(cidade))
+                    monfile.write("\nmonumento(\"" + m + "\", \"" + cidade + "\").");
+            }
         }
 
         List<String> aux2, aux3, sortedDist = new ArrayList<>(concelhos.keySet());
         Collections.sort(sortedDist);
         double distancia;
 
-        ligfile.write("%ligacao(CIDADE1, CIDADE2, DISTANCIA).\n\n");
+        ligfile.write("%ligacao(CIDADE1, CIDADE2, DISTANCIA).\n");
 
         for(String d : sortedDist){
             aux = fronteiras.get(d);
@@ -151,13 +192,13 @@ public class parser{
                 for(String c2 : aux3) {
                     if(!(c.equals(c2))) {
                         double[] coord1 = coordenadas.get(c);
-                        double latA = (coord1[0]*3.14)/180;
-                        double lonA = (coord1[1]*3.14)/180;
+                        double latA = (coord1[0]*Math.PI)/180;
+                        double lonA = (coord1[1]*Math.PI)/180;
                         double[] coord2 = coordenadas.get(c2);
-                        double latB = (coord2[0]*3.14)/180;
-                        double lonB = (coord2[1]*3.14)/180;
+                        double latB = (coord2[0]*Math.PI)/180;
+                        double lonB = (coord2[1]*Math.PI)/180;
                         distancia = raioTerra * Math.acos(Math.sin(latA)*Math.sin(latB) + Math.cos(latA)*Math.cos(latB)*Math.cos(lonA-lonB));
-                        ligfile.write("ligacao(\"" + c + "\", \"" + c2 + "\", " + distancia + ").\n");
+                        ligfile.write("\nligacao(\"" + c + "\", \"" + c2 + "\", " + String.format("%.3f", distancia) + ").");
                     }
                 }
                 aux3.add(c);
@@ -171,13 +212,13 @@ public class parser{
                     for(String c : aux2){
                         for(String c2 : aux3) {
                             double[] coord1 = coordenadas.get(c);
-                            double latA = (coord1[0]*3.14)/180;
-                            double lonA = (coord1[1]*3.14)/180;
+                            double latA = (coord1[0]*Math.PI)/180;
+                            double lonA = (coord1[1]*Math.PI)/180;
                             double[] coord2 = coordenadas.get(c2);
-                            double latB = (coord2[0]*3.14)/180;
-                            double lonB = (coord2[1]*3.14)/180;
+                            double latB = (coord2[0]*Math.PI)/180;
+                            double lonB = (coord2[1]*Math.PI)/180;
                             distancia = raioTerra * Math.acos(Math.sin(latA)*Math.sin(latB) + Math.cos(latA)*Math.cos(latB)*Math.cos(lonA-lonB));
-                            ligfile.write("ligacao(\"" + c + "\", \"" + c2 + "\", " + distancia + ").\n");
+                            ligfile.write("\nligacao(\"" + c + "\", \"" + c2 + "\", " + String.format("%.3f", distancia)  + ").");
                         }
                     }
                 }
@@ -188,5 +229,6 @@ public class parser{
         fis.close();
         cidfile.close();
         ligfile.close();
+        monfile.close();
     }
 }
