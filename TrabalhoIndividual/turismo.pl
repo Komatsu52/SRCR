@@ -1,144 +1,141 @@
 %turismo(TIPO, CIDADE).
 
-turismo(cultural, 'Lisboa').
-turismo(balnear, 'Braga').
-turismo(gastronomico, 'Copeira').
-turismo(cultural, 'Leiria').
-turismo(cultural, 'Faro').
-turismo(gastronomico, 'Castelo Branco').
-turismo(balnear, 'Santarem').
-turismo(balnear, 'Viseu').
-turismo(cultural, 'Portalegre').
-turismo(balnear, 'Sao Joao da Madeira').
-turismo(balnear, 'Castelo de Paiva').
-turismo(balnear, 'Vila do Bispo').
-turismo(balnear, 'Fronteira').
-turismo(balnear, 'Celorico da Beira').
-turismo(gastronomico, 'Arronches').
-turismo(cultural, 'Amarante').
-turismo(balnear, 'Gouveia').
-turismo(cultural, 'Aguiar da Beira').
-turismo(cultural, 'Condeixa-a-Nova').
-turismo(balnear, 'Lousada').
-turismo(gastronomico, 'Trancoso').
-turismo(cultural, 'Moita').
-turismo(balnear, 'Ponte de Lima').
-turismo(gastronomico, 'Sobral de Monte Agraco').
-turismo(balnear, 'Seixal').
-turismo(balnear, 'Almeirim').
-turismo(balnear, 'Elvas').
-turismo(gastronomico, 'Avis').
-turismo(balnear, 'Ourique').
-turismo(balnear, 'Vila do Conde').
-turismo(gastronomico, 'Alijo').
-turismo(balnear, 'Monchique').
-turismo(cultural, 'Cabeceiras de Basto').
-turismo(cultural, 'Melgaco').
-turismo(cultural, 'Redondo').
-turismo(cultural, 'Vila Nova de Cerveira').
-turismo(balnear, 'Mafra').
-turismo(gastronomico, 'Amadora').
-turismo(balnear, 'Pinhel').
-turismo(cultural, 'Estremoz').
-turismo(gastronomico, 'Nelas').
-turismo(balnear, 'Sever do Vouga').
-turismo(cultural, 'Sesimbra').
-turismo(gastronomico, 'Sao Pedro do Sul').
-turismo(cultural, 'Lourinha').
-turismo(balnear, 'Entroncamento').
-turismo(cultural, 'Arcos de Valdevez').
-turismo(balnear, 'Fafe').
-turismo(cultural, 'Ponte de Sor').
-turismo(balnear, 'Moimenta da Beira').
-turismo(gastronomico, 'Santa Marta de Penaguiao').
-turismo(gastronomico, 'Murca').
-turismo(balnear, 'Vila Real').
-turismo(cultural, 'Vinhais').
-turismo(cultural, 'Vila Nova de Gaia').
-turismo(balnear, 'Castelo de Vide').
-turismo(gastronomico, 'Lamego').
-turismo(balnear, 'Albergaria-a-Velha').
-turismo(gastronomico, 'Alandroal').
-turismo(balnear, 'Proenca-a-Nova').
-turismo(cultural, 'Lagoa').
-turismo(gastronomico, 'Felgueiras').
-turismo(balnear, 'Nazare').
-turismo(balnear, 'Miranda do Corvo').
-turismo(cultural, 'Vale de Cambra').
-turismo(cultural, 'Figueiro dos Vinhos').
-turismo(cultural, 'Santiago do Cacem').
-turismo(balnear, 'Trofa').
-turismo(cultural, 'Pedrogao Grande').
-turismo(cultural, 'Oleiros').
-turismo(cultural, 'Famalicao').
-turismo(balnear, 'Vila Verde').
-turismo(cultural, 'Terras de Bouro').
-turismo(gastronomico, 'Manteigas').
-turismo(gastronomico, 'Sintra').
-turismo(balnear, 'Vila Velha de Rodao').
-turismo(balnear, 'Benavente').
-turismo(balnear, 'Maia').
-turismo(balnear, 'Oeiras').
-turismo(cultural, 'Bombarral').
-turismo(cultural, 'Belmonte').
-turismo(gastronomico, 'Montemor-o-Velho').
-turismo(gastronomico, 'Oliveira do Hospital').
-turismo(cultural, 'Torres Novas').
-turismo(cultural, 'Vila Nova de Paiva').
-turismo(balnear, 'Trofa').
-turismo(balnear, 'Macedo de Cavaleiros').
-turismo(cultural, 'Resende').
-turismo(balnear, 'Azambuja').
-turismo(balnear, 'Vieira do Minho').
-turismo(gastronomico, 'Batalha').
-turismo(cultural, 'Alcanena').
-turismo(gastronomico, 'Palmela').
-turismo(cultural, 'Ferreira do Zezere').
-turismo(gastronomico, 'Tomar').
-turismo(gastronomico, 'Tondela').
-turismo(gastronomico, 'Almada').
-turismo(balnear, 'Almeida').
-turismo(gastronomico, 'Alvito').
-turismo(cultural, 'Mertola').
-turismo(gastronomico, 'Mesao Frio').
-turismo(balnear, 'Mourao').
-turismo(balnear, 'Pombal').
-turismo(balnear, 'Mogadouro').
-turismo(balnear, 'Povoa de Varzim').
-turismo(balnear, 'Tabua').
-turismo(gastronomico, 'Cascais').
-turismo(balnear, 'Montalegre').
-turismo(gastronomico, 'Gondomar').
-turismo(gastronomico, 'Freixo de Espada a Cinta').
-turismo(balnear, 'Mora').
-turismo(cultural, 'Vila Nova de Foz Coa').
-turismo(gastronomico, 'Caldas da Rainha').
-turismo(cultural, 'Marco de Canavezes').
-turismo(balnear, 'Coimbra').
-turismo(cultural, 'Barrancos').
-turismo(cultural, 'Meda').
-turismo(cultural, 'Gois').
-turismo(balnear, 'Reguengos de Monsaraz').
-turismo(gastronomico, 'Murtosa').
-turismo(cultural, 'Figueira da Foz').
-turismo(balnear, 'Abrantes').
-turismo(gastronomico, 'Arruda dos Vinhos').
-turismo(gastronomico, 'Pampilhosa da Serra').
-turismo(cultural, 'Alter do Chao').
-turismo(balnear, 'Mealhada').
-turismo(balnear, 'Cuba').
-turismo(cultural, 'Vila Franca de Xira').
-turismo(gastronomico, 'Mira').
-turismo(balnear, 'Miranda do Douro').
-turismo(cultural, 'Mirandela').
-turismo(gastronomico, 'Sines').
-turismo(cultural, 'Mondim de Basto').
-turismo(cultural, 'Moncao').
-turismo(gastronomico, 'Castro Daire').
-turismo(balnear, 'Olhao').
-turismo(cultural, 'Loures').
-turismo(cultural, 'Peso da Regua').
-turismo(balnear, 'Sabugal').
-turismo(gastronomico, 'Ansiao').
-turismo(gastronomico, 'Vila Real de Santo Antonio').
-turismo(gastronomico, 'Porto de Mos').
+turismo(gastronomico, 1).
+turismo(gastronomico, 2).
+turismo(cultural, 3).
+turismo(gastronomico, 8).
+turismo(balnear, 16).
+turismo(gastronomico, 18).
+turismo(gastronomico, 20).
+turismo(gastronomico, 21).
+turismo(balnear, 29).
+turismo(cultural, 30).
+turismo(gastronomico, 31).
+turismo(gastronomico, 32).
+turismo(balnear, 34).
+turismo(gastronomico, 35).
+turismo(cultural, 39).
+turismo(cultural, 40).
+turismo(cultural, 41).
+turismo(gastronomico, 42).
+turismo(balnear, 43).
+turismo(cultural, 45).
+turismo(gastronomico, 46).
+turismo(balnear, 49).
+turismo(gastronomico, 51).
+turismo(gastronomico, 52).
+turismo(balnear, 55).
+turismo(gastronomico, 56).
+turismo(gastronomico, 57).
+turismo(balnear, 59).
+turismo(balnear, 61).
+turismo(cultural, 62).
+turismo(balnear, 65).
+turismo(gastronomico, 70).
+turismo(cultural, 71).
+turismo(balnear, 74).
+turismo(cultural, 76).
+turismo(balnear, 78).
+turismo(gastronomico, 79).
+turismo(cultural, 80).
+turismo(gastronomico, 83).
+turismo(gastronomico, 84).
+turismo(balnear, 85).
+turismo(balnear, 87).
+turismo(cultural, 88).
+turismo(cultural, 90).
+turismo(balnear, 91).
+turismo(balnear, 92).
+turismo(cultural, 96).
+turismo(cultural, 97).
+turismo(balnear, 98).
+turismo(cultural, 100).
+turismo(cultural, 101).
+turismo(balnear, 105).
+turismo(balnear, 108).
+turismo(gastronomico, 109).
+turismo(gastronomico, 110).
+turismo(balnear, 111).
+turismo(balnear, 112).
+turismo(gastronomico, 113).
+turismo(balnear, 114).
+turismo(cultural, 115).
+turismo(gastronomico, 119).
+turismo(cultural, 121).
+turismo(gastronomico, 122).
+turismo(balnear, 127).
+turismo(cultural, 129).
+turismo(cultural, 132).
+turismo(gastronomico, 134).
+turismo(gastronomico, 135).
+turismo(balnear, 136).
+turismo(gastronomico, 140).
+turismo(gastronomico, 144).
+turismo(cultural, 147).
+turismo(cultural, 150).
+turismo(cultural, 152).
+turismo(balnear, 153).
+turismo(cultural, 155).
+turismo(balnear, 159).
+turismo(cultural, 164).
+turismo(gastronomico, 167).
+turismo(cultural, 170).
+turismo(cultural, 171).
+turismo(cultural, 173).
+turismo(gastronomico, 176).
+turismo(cultural, 177).
+turismo(balnear, 178).
+turismo(cultural, 179).
+turismo(cultural, 181).
+turismo(cultural, 182).
+turismo(balnear, 185).
+turismo(cultural, 188).
+turismo(balnear, 189).
+turismo(balnear, 190).
+turismo(balnear, 193).
+turismo(balnear, 195).
+turismo(cultural, 198).
+turismo(gastronomico, 201).
+turismo(balnear, 203).
+turismo(gastronomico, 210).
+turismo(balnear, 211).
+turismo(cultural, 212).
+turismo(cultural, 213).
+turismo(balnear, 214).
+turismo(gastronomico, 215).
+turismo(balnear, 216).
+turismo(gastronomico, 217).
+turismo(balnear, 218).
+turismo(gastronomico, 220).
+turismo(balnear, 221).
+turismo(balnear, 224).
+turismo(balnear, 228).
+turismo(gastronomico, 229).
+turismo(cultural, 232).
+turismo(cultural, 234).
+turismo(cultural, 235).
+turismo(balnear, 236).
+turismo(balnear, 237).
+turismo(cultural, 238).
+turismo(cultural, 241).
+turismo(balnear, 244).
+turismo(gastronomico, 245).
+turismo(cultural, 246).
+turismo(balnear, 248).
+turismo(gastronomico, 250).
+turismo(cultural, 251).
+turismo(balnear, 254).
+turismo(gastronomico, 258).
+turismo(balnear, 259).
+turismo(gastronomico, 262).
+turismo(balnear, 263).
+turismo(cultural, 267).
+turismo(gastronomico, 269).
+turismo(balnear, 271).
+turismo(gastronomico, 273).
+turismo(gastronomico, 274).
+turismo(balnear, 276).
+turismo(balnear, 277).
+turismo(gastronomico, 278).
+turismo(gastronomico, 281).
+turismo(balnear, 283).

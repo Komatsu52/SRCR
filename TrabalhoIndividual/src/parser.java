@@ -67,8 +67,8 @@ public class parser{
                           {"Coimbra", "Biblioteca Joanina de Coimbra"}};
 
         Map<String, List<String>> fronteiras = new HashMap<>();
-        Map<String, List<String>> concelhos = new HashMap<>();
-        Map<String, double[]> coordenadas = new HashMap<>();
+        Map<String, List<Integer>> concelhos = new HashMap<>();
+        Map<Integer, double[]> coordenadas = new HashMap<>();
         Map<String, List<String>> monumentos = new HashMap<>();
         List<String> aux;
 
@@ -165,19 +165,19 @@ public class parser{
                 i++;
             }
 
-            aux = concelhos.get(distrito);
-            aux.add(cidade);
-            concelhos.put(distrito, aux);
+            List<Integer> aux2 = concelhos.get(distrito);
+            aux2.add(id);
+            concelhos.put(distrito, aux2);
 
             cidfile.write(Normalizer.normalize("\ncidade(" + id + ", '" + cidade + "', " + lat + ", " + lon + ", '" + distrito + "', " + capital + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
             double[] coord = new double[2];
             coord[0] = lat;
             coord[1] = lon;
-            coordenadas.put(cidade, coord);
+            coordenadas.put(id, coord);
 
             if(monumentos.containsKey(cidade)){
                 for(String m : monumentos.get(cidade))
-                    monfile.write(Normalizer.normalize("\nmonumento('" + m + "', '" + cidade + "').", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                    monfile.write(Normalizer.normalize("\nmonumento('" + m + "', " + id + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
             }
 
             Random rand = new Random();
@@ -185,20 +185,21 @@ public class parser{
 
             switch (r){
                 case 0:
-                    turfile.write(Normalizer.normalize("\nturismo(gastronomico, '" + cidade + "').", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                    turfile.write(Normalizer.normalize("\nturismo(gastronomico, " + id + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                     break;
                 case 1:
-                    turfile.write(Normalizer.normalize("\nturismo(cultural, '" + cidade + "').", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                    turfile.write(Normalizer.normalize("\nturismo(cultural, " + id + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                     break;
                 case 2:
-                    turfile.write(Normalizer.normalize("\nturismo(balnear, '" + cidade + "').", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                    turfile.write(Normalizer.normalize("\nturismo(balnear, " + id + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                     break;
                 default:
                     break;
             }
         }
 
-        List<String> aux2, aux3, sortedDist = new ArrayList<>(concelhos.keySet());
+        List<Integer> aux2, aux3;
+        List<String> sortedDist = new ArrayList<>(concelhos.keySet());
         Collections.sort(sortedDist);
         double distancia;
 
@@ -210,8 +211,8 @@ public class parser{
             Collections.sort(aux2);
             aux3 = new ArrayList<>();
 
-            for(String c : aux2){
-                for(String c2 : aux3) {
+            for(Integer c : aux2){
+                for(Integer c2 : aux3) {
                     if(!(c.equals(c2))) {
                         double[] coord1 = coordenadas.get(c);
                         double latA = (coord1[0]*Math.PI)/180;
@@ -220,7 +221,7 @@ public class parser{
                         double latB = (coord2[0]*Math.PI)/180;
                         double lonB = (coord2[1]*Math.PI)/180;
                         distancia = raioTerra * Math.acos(Math.sin(latA)*Math.sin(latB) + Math.cos(latA)*Math.cos(latB)*Math.cos(lonA-lonB));
-                        ligfile.write(Normalizer.normalize("\nligacao('" + c + "', '" + c2 + "', " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                        ligfile.write(Normalizer.normalize("\nligacao(" + c + ", " + c2 + ", " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                     }
                 }
                 aux3.add(c);
@@ -231,8 +232,8 @@ public class parser{
                     aux3 = concelhos.get(f);
                     Collections.sort(aux3);
 
-                    for(String c : aux2){
-                        for(String c2 : aux3) {
+                    for(Integer c : aux2){
+                        for(Integer c2 : aux3) {
                             double[] coord1 = coordenadas.get(c);
                             double latA = (coord1[0]*Math.PI)/180;
                             double lonA = (coord1[1]*Math.PI)/180;
@@ -240,7 +241,7 @@ public class parser{
                             double latB = (coord2[0]*Math.PI)/180;
                             double lonB = (coord2[1]*Math.PI)/180;
                             distancia = raioTerra * Math.acos(Math.sin(latA)*Math.sin(latB) + Math.cos(latA)*Math.cos(latB)*Math.cos(lonA-lonB));
-                            ligfile.write(Normalizer.normalize("\nligacao('" + c + "', '" + c2 + "', " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
+                            ligfile.write(Normalizer.normalize("\nligacao(" + c + ", " + c2 + ", " + distancia + ").", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", ""));
                         }
                     }
                 }
